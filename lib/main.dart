@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:housytask/multipleChoice.dart';
 import 'package:housytask/radio_button.dart';
 
 void main() {
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      home: RadioButton(),
+      home: MultipleChoice(),
     );
   }
 }
