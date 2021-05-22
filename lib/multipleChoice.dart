@@ -6,15 +6,15 @@ class MultipleChoice extends StatefulWidget {
 }
 
 class MultipleChoiceState extends State {
-  Map<String, bool> List = {
-    'Egges': false,
-    'Chocolates': false,
-    'Flour': false,
-    'Fllower': false,
-    'Fruits': false,
-  };
+    Map<String, bool> List = {
+      'Egges': false,
+      'Chocolates': false,
+      'Flour': false,
+      'Fllower': false,
+      'Fruits': false,
+    };
 
-  var holder_1 = [];
+    var holder_1 = [];
 
   getItems() {
     List.forEach((key, value) {
@@ -28,9 +28,12 @@ class MultipleChoiceState extends State {
     // Here you will get all your selected Checkbox items.
 
     // Clear array after use.
-    holder_1.clear();
+    // holder_1.clear();
   }
 
+  void submit(){
+    holder_1.forEach((element) {print(element);});
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -80,6 +83,12 @@ class MultipleChoiceState extends State {
                       onChanged: (bool value) {
                         setState(() {
                           List[key] = value;
+                          if(value){
+                            holder_1.add(key);
+                          }
+                          else{
+                            holder_1.removeWhere((element) =>element==key);
+                          }
                         });
                       },
                     ),
@@ -100,8 +109,12 @@ class MultipleChoiceState extends State {
             width: 500,
             height: 60,
             child: RaisedButton(
-              color: Colors.blue,
-              onPressed: () {},
+              
+              // disabledColor: Colors.blue[200],
+              color: holder_1.length==0?Colors.blue[200]: Colors.blue,
+              onPressed: () {
+                return holder_1.length==0?null:submit();
+              },
               child: Text(
                 "NEXT",
                 style: TextStyle(color: Colors.white, fontSize: 18),
