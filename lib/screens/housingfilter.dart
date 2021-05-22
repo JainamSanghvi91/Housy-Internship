@@ -59,6 +59,7 @@ class _HousingFilterState extends State<HousingFilter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.white,
         actions: [
@@ -108,42 +109,44 @@ class _HousingFilterState extends State<HousingFilter> {
                 },
                 controller: _pageController,
                 children: [
-                  hq1(),
-                  hq2(),
-                  hq3(),
-                  hq4(),
-                  hq5(),
-                  hq6(),
-                  hq7(),
-                  hq8(),
-                  hq9(),
+                  HQ1(),
+                  HQ2(),
+                  HQ3(),
+                  HQ4(),
+                  HQ5(),
+                  HQ6(),
+                  HQ7(),
+                  HQ8(),
+                  HQ9(),
                 ],
               ),
               flex: 11,
             ),
-            Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  border: Border(
-                top: BorderSide(
-                  color: Colors.black,
-                  width: 0.5,
-                ),
-              )),
-              width: 500,
-              height: 60,
-              child: RaisedButton(
-                // disabledColor: Colors.blue[200],
-                color: isdisable ? Colors.blue[200] : Colors.blue,
-                onPressed: () {
-                  return isdisable ? null : next();
-                },
-                child: Text(
-                  "NEXT",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ),
-            ),
+            _selectedpage == 6
+                ? Container()
+                : Container(
+                    padding: EdgeInsets.all(5),
+                    decoration: BoxDecoration(
+                        border: Border(
+                      top: BorderSide(
+                        color: Colors.black,
+                        width: 0.5,
+                      ),
+                    )),
+                    width: 500,
+                    height: 60,
+                    child: RaisedButton(
+                      // disabledColor: Colors.blue[200],
+                      color: isdisable ? Colors.blue[200] : Colors.blue,
+                      onPressed: () {
+                        return isdisable ? null : next();
+                      },
+                      child: Text(
+                        "NEXT",
+                        style: TextStyle(color: Colors.white, fontSize: 18),
+                      ),
+                    ),
+                  ),
           ],
         );
       }),

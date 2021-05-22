@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
-class hq5 extends StatefulWidget {
+class HQ5 extends StatefulWidget {
   @override
-  _hq5State createState() => _hq5State();
+  _HQ5State createState() => _HQ5State();
 }
 
-class _hq5State extends State<hq5> {
+class _HQ5State extends State<HQ5> {
   Map<String, bool> List;
   @override
   void initState() {
@@ -52,8 +52,8 @@ class _hq5State extends State<hq5> {
                       setState(() {
                         List[key] = value;
                         print("Here in ");
-                        // Provider.of<P_Housing>(context, listen: false)
-                        //     .c_type_of_work(List);
+                        Provider.of<P_Housing>(context, listen: false)
+                            .ans5(List);
                         // holder_1[key]=value;
                       });
                     },

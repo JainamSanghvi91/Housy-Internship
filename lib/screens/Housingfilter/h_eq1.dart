@@ -2,26 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
-class hq1 extends StatefulWidget {
+class HQ1 extends StatefulWidget {
   @override
-  _hq1State createState() => _hq1State();
+  _HQ1State createState() => _HQ1State();
 }
 
-class _hq1State extends State<hq1> {
+class _HQ1State extends State<HQ1> {
   List items;
   int select;
   @override
   void initState() {
     super.initState();
     items = Provider.of<P_Housing>(context, listen: false).item1;
-    // for (int i = 0; i < 3; i++) {
-    //   print(items.entries.elementAt(i).key);
-    //   print(items.entries.elementAt(i).value);
-    //   if (items.entries.elementAt(i).value == true) {
-    //     select = i;
-    //   }
-    // }
-    select = Provider.of<P_Housing>(context, listen: false).currentselected;
+    select = Provider.of<P_Housing>(context, listen: false).currentans1;
   }
 
   setSelectedRadio(int val) {

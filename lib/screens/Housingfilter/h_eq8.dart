@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class hq8 extends StatefulWidget {
+class HQ8 extends StatefulWidget {
   @override
-  _hq8State createState() => _hq8State();
+  _HQ8State createState() => _HQ8State();
 }
 
-class _hq8State extends State<hq8> {
+class _HQ8State extends State<HQ8> {
   @override
   Widget build(BuildContext context) {
     return Container();

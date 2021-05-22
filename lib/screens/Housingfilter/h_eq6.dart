@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
-class hq6 extends StatefulWidget {
+class HQ6 extends StatefulWidget {
   @override
-  _hq6State createState() => _hq6State();
+  _HQ6State createState() => _HQ6State();
 }
 
-class _hq6State extends State<hq6> {
+class _HQ6State extends State<HQ6> {
   List items;
   int select;
   @override
   void initState() {
     super.initState();
     items = Provider.of<P_Housing>(context, listen: false).item6;
+    select = Provider.of<P_Housing>(context, listen: false).currentans6;
   }
 
   setSelectedRadio(int val) {
@@ -57,8 +58,8 @@ class _hq6State extends State<hq6> {
                         () {
                           setSelectedRadio(i);
                           print("Here in ");
-                          // Provider.of<P_Housing>(context, listen: false)
-                          //     .ans1(i);
+                          Provider.of<P_Housing>(context, listen: false)
+                              .ans6(i);
                         },
                       );
                     },
@@ -85,8 +86,8 @@ class _hq6State extends State<hq6> {
                                 () {
                                   setSelectedRadio(val);
                                   print("Here in ");
-                                  // Provider.of<P_Housing>(context, listen: false)
-                                  //     .ans1(val);
+                                  Provider.of<P_Housing>(context, listen: false)
+                                      .ans6(val);
                                 },
                               );
                             },

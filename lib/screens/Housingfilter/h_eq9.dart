@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
-class hq9 extends StatefulWidget {
+class HQ9 extends StatefulWidget {
   @override
-  _hq9State createState() => _hq9State();
+  _HQ9State createState() => _HQ9State();
 }
 
-class _hq9State extends State<hq9> {
+class _HQ9State extends State<HQ9> {
   Map<String, bool> List;
   @override
   void initState() {

@@ -7,10 +7,10 @@ class P_Housing with ChangeNotifier {
     'Full time(live in)',
   ];
 
-  int currentselected = -1;
+  int currentans1 = -1;
 
   void ans1(int id) {
-    currentselected = id;
+    currentans1 = id;
   }
 
   List item2 = [
@@ -22,6 +22,12 @@ class P_Housing with ChangeNotifier {
     '6 Bedrooms',
   ];
 
+  int currentans2 = -1;
+
+  void ans2(int id) {
+    currentans2 = id;
+  }
+
   List item3 = [
     "1 Bathroom",
     '2 Bathrooms',
@@ -30,11 +36,23 @@ class P_Housing with ChangeNotifier {
     '5 Bathrooms',
   ];
 
+  int currentans3 = -1;
+
+  void ans3(int id) {
+    currentans3 = id;
+  }
+
   List item4 = [
     "Standard Cleaning",
     'Deep Cleaning',
     'Move out cleaning',
   ];
+
+  int currentans4 = -1;
+
+  void ans4(int id) {
+    currentans4 = id;
+  }
 
   Map<String, bool> item5 = {
     'Window cleaning': false,
@@ -43,12 +61,29 @@ class P_Housing with ChangeNotifier {
     'laundry cleaning': false,
   };
 
+  void ans5(var list) {
+    item5 = list;
+  }
+
   List item6 = [
     "Just once",
     'Every week',
     'Every two weeks',
     'once a month',
   ];
+
+  int currentans6 = -1;
+
+  void ans6(int id) {
+    currentans6 = id;
+  }
+
+  String additional = "";
+  void ans7(String ans) {
+    print(ans);
+    print("This function is been called");
+    additional = ans;
+  }
 
   Map<String, bool> item9 = {
     'Early Morning': false,
