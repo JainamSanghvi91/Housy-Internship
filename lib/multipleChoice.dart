@@ -5,17 +5,17 @@ class MultipleChoice extends StatefulWidget {
   MultipleChoiceState createState() => new MultipleChoiceState();
 }
 
+Map<String, bool> List = {
+  'Egges': false,
+  'Chocolates': false,
+  'Flour': false,
+  'Fllower': false,
+  'Fruits': false,
+};
+
+var holder_1 = [];
+
 class MultipleChoiceState extends State {
-  Map<String, bool> List = {
-    'Egges': false,
-    'Chocolates': false,
-    'Flour': false,
-    'Fllower': false,
-    'Fruits': false,
-  };
-
-  var holder_1 = [];
-
   getItems() {
     List.forEach((key, value) {
       if (value == true) {
@@ -91,17 +91,21 @@ class MultipleChoiceState extends State {
           Container(
             padding: EdgeInsets.all(5),
             decoration: BoxDecoration(
-                border: Border(
-              top: BorderSide(
-                color: Colors.black,
-                width: 0.5,
+              border: Border(
+                top: BorderSide(
+                  color: Colors.black,
+                  width: 0.5,
+                ),
               ),
-            )),
+            ),
             width: 500,
             height: 60,
             child: RaisedButton(
               color: Colors.blue,
-              onPressed: () {},
+              onPressed: () {
+                getItems();
+                //print(holder_1);
+              },
               child: Text(
                 "NEXT",
                 style: TextStyle(color: Colors.white, fontSize: 18),

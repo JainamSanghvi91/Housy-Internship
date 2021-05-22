@@ -2,9 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:housytask/size_config.dart';
 
 class RadioButton extends StatefulWidget {
+  var item;
+  RadioButton(
+    this.item,
+  );
   @override
   _RadioButtonState createState() => _RadioButtonState();
 }
+
+String ans = "";
+// List item = [
+//   '1 Bedroom',
+//   '2 Bedroom',
+//   '3 Bedroom',
+//   '4 Bedroom',
+//   '5 Bedroom',
+//   '6 Bedroom',
+// ];
 
 class _RadioButtonState extends State<RadioButton> {
   int select;
@@ -17,6 +31,7 @@ class _RadioButtonState extends State<RadioButton> {
   setSelectedRadio(int val) {
     setState(() {
       select = val;
+      ans = widget.item[select];
     });
   }
 
@@ -58,192 +73,51 @@ class _RadioButtonState extends State<RadioButton> {
               ),
               Expanded(
                 flex: 7,
-                child: Column(
-                  children: [
-                    ButtonBar(
-                      //alignment: MainAxisAlignment.center,
+                child: ListView.builder(
+                  itemBuilder: (ctx, i) {
+                    return Column(
                       children: [
                         Divider(
                           color: Colors.grey,
                           thickness: 1,
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10,
-                            right: 10,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "1 bedroom",
-                                style: TextStyle(
-                                  fontSize: 16,
+                        InkWell(
+                          onTap: () {
+                            setSelectedRadio(i);
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.only(
+                              left: 10,
+                              right: 10,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  widget.item[i],
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                              Radio(
-                                value: 1,
-                                groupValue: select,
-                                onChanged: (val) {
-                                  print(val);
-                                  setSelectedRadio(val);
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10,
-                            right: 10,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "2 bedroom",
-                                style: TextStyle(
-                                  fontSize: 16,
+                                Radio(
+                                  value: i,
+                                  groupValue: select,
+                                  onChanged: (val) {
+                                    print(val);
+                                    setState(() {
+                                      ans = widget.item[val];
+                                      print("AND" + widget.item[val]);
+                                    });
+                                  },
                                 ),
-                              ),
-                              Radio(
-                                value: 2,
-                                groupValue: select,
-                                onChanged: (val) {
-                                  print(val);
-                                  setSelectedRadio(val);
-                                },
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10,
-                            right: 10,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "3 bedroom",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                ),
-                              ),
-                              Radio(
-                                value: 3,
-                                groupValue: select,
-                                onChanged: (val) {
-                                  print(val);
-                                  setSelectedRadio(val);
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10,
-                            right: 10,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "4 bedroom",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                ),
-                              ),
-                              Radio(
-                                value: 4,
-                                groupValue: select,
-                                onChanged: (val) {
-                                  print(val);
-                                  setSelectedRadio(val);
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10,
-                            right: 10,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "5 bedroom",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                ),
-                              ),
-                              Radio(
-                                value: 5,
-                                groupValue: select,
-                                onChanged: (val) {
-                                  print(val);
-                                  setSelectedRadio(val);
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(
-                            left: 10,
-                            right: 10,
-                          ),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                "6 bedroom",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                ),
-                              ),
-                              Radio(
-                                value: 6,
-                                groupValue: select,
-                                onChanged: (val) {
-                                  print(val);
-                                  setSelectedRadio(val);
-                                },
-                              ),
-                            ],
-                          ),
-                        ),
-                        Divider(
-                          color: Colors.grey,
-                          thickness: 1,
                         ),
                       ],
-                    )
-                  ],
+                    );
+                  },
+                  itemCount: widget.item.length,
                 ),
               ),
               Container(
@@ -259,7 +133,9 @@ class _RadioButtonState extends State<RadioButton> {
                 height: 60,
                 child: RaisedButton(
                   color: Colors.blue,
-                  onPressed: () {},
+                  onPressed: () {
+                    print(ans);
+                  },
                   child: Text(
                     "NEXT",
                     style: TextStyle(color: Colors.white, fontSize: 18),
@@ -273,3 +149,153 @@ class _RadioButtonState extends State<RadioButton> {
     );
   }
 }
+
+// Divider(
+//   color: Colors.grey,
+//   thickness: 1,
+// ),
+// Padding(
+//   padding: EdgeInsets.only(
+//     left: 10,
+//     right: 10,
+//   ),
+//   child: Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     children: [
+//       Text(
+//         "1 bedroom",
+//         style: TextStyle(
+//           fontSize: 16,
+//         ),
+//       ),
+//       Radio(
+//         value: 1,
+//         groupValue: select,
+//         onChanged: (val) {
+//           print(val);
+//           setSelectedRadio(val);
+//         },
+//       ),
+//     ],
+//   ),
+// ),
+// Divider(
+//   color: Colors.grey,
+//   thickness: 1,
+// ),
+// Padding(
+//   padding: EdgeInsets.only(
+//     left: 10,
+//     right: 10,
+//   ),
+//   child: Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     children: [
+//       Text(
+//         "2 bedroom",
+//         style: TextStyle(
+//           fontSize: 16,
+//         ),
+//       ),
+//       Radio(
+//         value: 2,
+//         groupValue: select,
+//         onChanged: (val) {
+//           print(val);
+//           setSelectedRadio(val);
+//         },
+//       ),
+//     ],
+//   ),
+// ),
+// Divider(
+//   color: Colors.grey,
+//   thickness: 1,
+// ),
+// Padding(
+//   padding: EdgeInsets.only(
+//     left: 10,
+//     right: 10,
+//   ),
+//   child: Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     children: [
+//       Text(
+//         "3 bedroom",
+//         style: TextStyle(
+//           fontSize: 16,
+//         ),
+//       ),
+//       Radio(
+//         value: 3,
+//         groupValue: select,
+//         onChanged: (val) {
+//           print(val);
+//           setSelectedRadio(val);
+//         },
+//       ),
+//     ],
+//   ),
+// ),
+// Divider(
+//   color: Colors.grey,
+//   thickness: 1,
+// ),
+// Padding(
+//   padding: EdgeInsets.only(
+//     left: 10,
+//     right: 10,
+//   ),
+//   child: Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     children: [
+//       Text(
+//         "4 bedroom",
+//         style: TextStyle(
+//           fontSize: 16,
+//         ),
+//       ),
+//       Radio(
+//         value: 4,
+//         groupValue: select,
+//         onChanged: (val) {
+//           print(val);
+//           setSelectedRadio(val);
+//         },
+//       ),
+//     ],
+//   ),
+// ),
+// Divider(
+//   color: Colors.grey,
+//   thickness: 1,
+// ),
+// Padding(
+//   padding: EdgeInsets.only(
+//     left: 10,
+//     right: 10,
+//   ),
+//   child: Row(
+//     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//     children: [
+//       Text(
+//         "5 bedroom",
+//         style: TextStyle(
+//           fontSize: 16,
+//         ),
+//       ),
+//       Radio(
+//         value: 5,
+//         groupValue: select,
+//         onChanged: (val) {
+//           print(val);
+//           setSelectedRadio(val);
+//         },
+//       ),
+//     ],
+//   ),
+// ),
+// Divider(
+//   color: Colors.grey,
+//   thickness: 1,
+// ),
