@@ -3,6 +3,7 @@ import 'package:housytask/grid.dart';
 import 'package:housytask/provider/p_housing.dart';
 import 'package:housytask/provider/p_massage.dart';
 import 'package:housytask/provider/p_tiffin.dart';
+import 'package:housytask/screens/homepage.dart';
 import 'package:housytask/screens/housingfilter.dart';
 import 'package:housytask/multipleChoice.dart';
 import 'package:housytask/provider/p_electrician.dart';
@@ -37,7 +38,13 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        home: Grid(),
+        home: HomePage(),
+        routes: {
+          HousingFilter.routename: (ctx) => HousingFilter(),
+          ElectriFilter.routename: (ctx) => ElectriFilter(),
+          MassageFilter.routename: (ctx) => MassageFilter(),
+          TiffinFilter.routename: (ctx) => TiffinFilter(),
+        },
       ),
     );
   }

@@ -9,6 +9,7 @@ import 'package:housytask/screens/Massagefilter/mq6.dart';
 import 'package:housytask/screens/Massagefilter/mq7.dart';
 
 class MassageFilter extends StatefulWidget {
+  static final String routename = '/massage-page';
   @override
   _MassageFilterState createState() => _MassageFilterState();
 }
@@ -65,7 +66,7 @@ class _MassageFilterState extends State<MassageFilter> {
               Icons.close,
               color: Colors.black,
             ),
-            onPressed: () => null,
+            onPressed: () => Navigator.of(context).pop(),
           )
         ],
         title: Center(

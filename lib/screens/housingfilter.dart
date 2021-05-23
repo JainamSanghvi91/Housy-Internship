@@ -12,6 +12,7 @@ import 'Housingfilter/h_eq2.dart';
 import 'Housingfilter/h_eq1.dart';
 
 class HousingFilter extends StatefulWidget {
+  static final String routename = '/housing-page';
   @override
   _HousingFilterState createState() => _HousingFilterState();
 }
@@ -68,7 +69,7 @@ class _HousingFilterState extends State<HousingFilter> {
               Icons.close,
               color: Colors.black,
             ),
-            onPressed: () => null,
+            onPressed: () => Navigator.of(context).pop(),
           )
         ],
         title: Center(

@@ -5,6 +5,7 @@ import 'package:housytask/screens/Tiffinfilter/tq2.dart';
 import 'package:housytask/screens/Tiffinfilter/tq3.dart';
 
 class TiffinFilter extends StatefulWidget {
+  static final String routename = '/tiffin-page';
   @override
   _TiffinFilterState createState() => _TiffinFilterState();
 }
@@ -61,7 +62,7 @@ class _TiffinFilterState extends State<TiffinFilter> {
               Icons.close,
               color: Colors.black,
             ),
-            onPressed: () => null,
+            onPressed: () => Navigator.of(context).pop(),
           )
         ],
         title: Center(
