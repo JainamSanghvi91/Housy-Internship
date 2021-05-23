@@ -66,4 +66,10 @@ class P_Massage with ChangeNotifier {
   void ans6(var val) {
     item6 = val;
   }
+
+  DateTime date = DateTime.now();
+
+  void ans7(DateTime date) {
+    date = date;
+  }
 }

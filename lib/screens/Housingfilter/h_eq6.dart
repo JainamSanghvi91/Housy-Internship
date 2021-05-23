@@ -3,6 +3,8 @@ import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
 class HQ6 extends StatefulWidget {
+  HQ6(this.call);
+  Function call;
   @override
   _HQ6State createState() => _HQ6State();
 }
@@ -10,14 +12,21 @@ class HQ6 extends StatefulWidget {
 class _HQ6State extends State<HQ6> {
   List items;
   int select;
+  int num_selected = 0;
+
+  bool isdisable = true;
   @override
   void initState() {
     super.initState();
     items = Provider.of<P_Housing>(context, listen: false).item6;
     select = Provider.of<P_Housing>(context, listen: false).currentans6;
+    if (select != -1) {
+      isdisable = false;
+    }
   }
 
   setSelectedRadio(int val) {
+    isdisable = false;
     setState(() {
       select = val;
     });
@@ -102,6 +111,28 @@ class _HQ6State extends State<HQ6> {
             itemCount: items.length,
           ),
         ),
+        Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                border: Border(
+              top: BorderSide(
+                color: Colors.black,
+                width: 0.5,
+              ),
+            )),
+            width: 500,
+            height: 60,
+            child: RaisedButton(
+              // disabledColor: Colors.blue[200],
+              color: isdisable ? Colors.blue[200] : Colors.blue,
+              onPressed: () {
+                return isdisable ? null : widget.call();
+              },
+              child: Text(
+                "NEXT",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            )),
       ],
     );
   }

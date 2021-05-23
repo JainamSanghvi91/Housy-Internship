@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:housytask/provider/p_electrician.dart';
 import 'package:housytask/screens/Electricfilter/eq1.dart';
 import 'package:housytask/screens/Electricfilter/eq2.dart';
 import 'package:housytask/screens/Electricfilter/eq3.dart';
@@ -7,6 +8,7 @@ import 'package:housytask/screens/Electricfilter/eq4.dart';
 import 'package:housytask/screens/Electricfilter/eq5.dart';
 import 'package:housytask/screens/Electricfilter/eq6.dart';
 import 'package:housytask/screens/Electricfilter/eq7.dart';
+import 'package:provider/provider.dart';
 
 class ElectriFilter extends StatefulWidget {
   @override
@@ -16,9 +18,9 @@ class ElectriFilter extends StatefulWidget {
 class _ElectriFilterState extends State<ElectriFilter> {
   int _selectedpage = 0;
   int totalpages = 7;
-  bool isdisable = false;
   PageController _pageController;
   void _changepage(int pagenumber) {
+    print("current page will be $pagenumber");
     setState(() {
       _selectedpage = pagenumber;
       _pageController.animateToPage(pagenumber,
@@ -105,40 +107,18 @@ class _ElectriFilterState extends State<ElectriFilter> {
                 },
                 controller: _pageController,
                 children: [
-                  EQ1(),
-                  EQ2(),
-                  EQ3(),
-                  EQ4(),
-                  EQ5(),
-                  EQ6(),
-                  EQ7(),
+                  EQ1(next),
+                  EQ2(next),
+                  EQ3(next),
+                  EQ4(next),
+                  EQ5(next),
+                  EQ6(next),
+                  EQ7(next),
                 ],
               ),
               flex: 11,
             ),
-            Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  border: Border(
-                top: BorderSide(
-                  color: Colors.black,
-                  width: 0.5,
-                ),
-              )),
-              width: 500,
-              height: 60,
-              child: RaisedButton(
-                // disabledColor: Colors.blue[200],
-                color: isdisable ? Colors.blue[200] : Colors.blue,
-                onPressed: () {
-                  return isdisable ? null : next();
-                },
-                child: Text(
-                  "NEXT",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ),
-            ),
+            
           ],
         );
       }),

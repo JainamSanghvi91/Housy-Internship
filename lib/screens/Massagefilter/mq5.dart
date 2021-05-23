@@ -3,6 +3,8 @@ import 'package:housytask/provider/p_massage.dart';
 import 'package:provider/provider.dart';
 
 class MQ5 extends StatefulWidget {
+  MQ5(this.call);
+  Function call;
   @override
   _MQ5State createState() => _MQ5State();
 }
@@ -85,6 +87,7 @@ class _MQ5State extends State<MQ5> {
               color: Colors.blue,
               onPressed: () {
                 submit();
+                widget.call();
               },
               child: Text(
                 "NEXT",

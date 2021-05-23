@@ -3,16 +3,29 @@ import 'package:housytask/provider/p_tiffin.dart';
 import 'package:provider/provider.dart';
 
 class TQ3 extends StatefulWidget {
+  TQ3(this.call);
+  Function call;
   @override
   _TQ3State createState() => _TQ3State();
 }
 
 class _TQ3State extends State<TQ3> {
   Map<String, bool> List;
+  int num_selected = 0;
+
+  bool isdisable = true;
   @override
   void initState() {
     super.initState();
     List = Provider.of<P_Tiffin>(context, listen: false).item3;
+    List.forEach((key, value) {
+      if (value) {
+        num_selected++;
+      }
+    });
+    if (num_selected != 0) {
+      isdisable = false;
+    }
   }
 
   @override
@@ -49,6 +62,16 @@ class _TQ3State extends State<TQ3> {
                     activeColor: Colors.blue,
                     checkColor: Colors.white,
                     onChanged: (bool value) {
+                      if (value) {
+                        num_selected++;
+                      } else {
+                        num_selected--;
+                      }
+                      if (num_selected == 0) {
+                        isdisable = true;
+                      } else {
+                        isdisable = false;
+                      }
                       setState(() {
                         List[key] = value;
                         print("Here in ");
@@ -61,6 +84,29 @@ class _TQ3State extends State<TQ3> {
                 ],
               );
             }).toList(),
+          ),
+        ),
+        Container(
+          padding: EdgeInsets.all(5),
+          decoration: BoxDecoration(
+              border: Border(
+            top: BorderSide(
+              color: Colors.black,
+              width: 0.5,
+            ),
+          )),
+          width: 500,
+          height: 60,
+          child: RaisedButton(
+            // disabledColor: Colors.blue[200],
+            color: Colors.blue,
+            onPressed: () {
+              widget.call();
+            },
+            child: Text(
+              "Done",
+              style: TextStyle(color: Colors.white, fontSize: 18),
+            ),
           ),
         ),
       ],

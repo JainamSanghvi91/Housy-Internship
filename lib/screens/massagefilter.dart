@@ -15,7 +15,7 @@ class MassageFilter extends StatefulWidget {
 
 class _MassageFilterState extends State<MassageFilter> {
   int _selectedpage = 0;
-  int totalpages = 9;
+  int totalpages = 7;
   bool isdisable = false;
   PageController _pageController;
   void _changepage(int pagenumber) {
@@ -106,42 +106,17 @@ class _MassageFilterState extends State<MassageFilter> {
                 },
                 controller: _pageController,
                 children: [
-                  MQ1(),
-                  MQ2(),
-                  MQ3(),
-                  MQ4(),
-                  MQ5(),
-                  MQ6(),
-                  MQ7(),
+                  MQ1(next),
+                  MQ2(next),
+                  MQ3(next),
+                  MQ4(next),
+                  MQ5(next),
+                  MQ6(next),
+                  MQ7(next),
                 ],
               ),
               flex: 11,
             ),
-            _selectedpage == 4
-                ? Container()
-                : Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                        border: Border(
-                      top: BorderSide(
-                        color: Colors.black,
-                        width: 0.5,
-                      ),
-                    )),
-                    width: 500,
-                    height: 60,
-                    child: RaisedButton(
-                      // disabledColor: Colors.blue[200],
-                      color: isdisable ? Colors.blue[200] : Colors.blue,
-                      onPressed: () {
-                        return isdisable ? null : next();
-                      },
-                      child: Text(
-                        "NEXT",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                    ),
-                  ),
           ],
         );
       }),

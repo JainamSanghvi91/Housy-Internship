@@ -109,44 +109,19 @@ class _HousingFilterState extends State<HousingFilter> {
                 },
                 controller: _pageController,
                 children: [
-                  HQ1(),
-                  HQ2(),
-                  HQ3(),
-                  HQ4(),
-                  HQ5(),
-                  HQ6(),
-                  HQ7(),
-                  HQ8(),
-                  HQ9(),
+                  HQ1(next),
+                  HQ2(next),
+                  HQ3(next),
+                  HQ4(next),
+                  HQ5(next),
+                  HQ6(next),
+                  HQ7(next),
+                  HQ8(next),
+                  HQ9(next),
                 ],
               ),
               flex: 11,
             ),
-            _selectedpage == 6
-                ? Container()
-                : Container(
-                    padding: EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                        border: Border(
-                      top: BorderSide(
-                        color: Colors.black,
-                        width: 0.5,
-                      ),
-                    )),
-                    width: 500,
-                    height: 60,
-                    child: RaisedButton(
-                      // disabledColor: Colors.blue[200],
-                      color: isdisable ? Colors.blue[200] : Colors.blue,
-                      onPressed: () {
-                        return isdisable ? null : next();
-                      },
-                      child: Text(
-                        "NEXT",
-                        style: TextStyle(color: Colors.white, fontSize: 18),
-                      ),
-                    ),
-                  ),
           ],
         );
       }),

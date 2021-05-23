@@ -3,6 +3,8 @@ import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
 class HQ7 extends StatefulWidget {
+  HQ7(this.call);
+  Function call;
   @override
   _HQ7State createState() => _HQ7State();
 }
@@ -86,6 +88,7 @@ class _HQ7State extends State<HQ7> {
               color: Colors.blue,
               onPressed: () {
                 submit();
+                widget.call();
               },
               child: Text(
                 "NEXT",

@@ -85,6 +85,12 @@ class P_Housing with ChangeNotifier {
     additional = ans;
   }
 
+  DateTime date = DateTime.now();
+
+  void ans8(DateTime date) {
+    date = date;
+  }
+
   Map<String, bool> item9 = {
     'Early Morning': false,
     'Morning': false,

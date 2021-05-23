@@ -102,35 +102,12 @@ class _TiffinFilterState extends State<TiffinFilter> {
                 },
                 controller: _pageController,
                 children: [
-                  TQ1(),
-                  TQ2(),
-                  TQ3(),
+                  TQ1(next),
+                  TQ2(next),
+                  TQ3(next),
                 ],
               ),
               flex: 11,
-            ),
-            Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  border: Border(
-                top: BorderSide(
-                  color: Colors.black,
-                  width: 0.5,
-                ),
-              )),
-              width: 500,
-              height: 60,
-              child: RaisedButton(
-                // disabledColor: Colors.blue[200],
-                color: isdisable ? Colors.blue[200] : Colors.blue,
-                onPressed: () {
-                  return isdisable ? null : next();
-                },
-                child: Text(
-                  "NEXT",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ),
             ),
           ],
         );

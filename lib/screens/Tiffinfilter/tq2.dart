@@ -3,16 +3,29 @@ import 'package:housytask/provider/p_tiffin.dart';
 import 'package:provider/provider.dart';
 
 class TQ2 extends StatefulWidget {
+  TQ2(this.call);
+  Function call;
   @override
   _TQ2State createState() => _TQ2State();
 }
 
 class _TQ2State extends State<TQ2> {
   Map<String, bool> List;
+  int num_selected = 0;
+
+  bool isdisable = true;
   @override
   void initState() {
     super.initState();
     List = Provider.of<P_Tiffin>(context, listen: false).item2;
+    List.forEach((key, value) {
+      if (value) {
+        num_selected++;
+      }
+    });
+    if (num_selected != 0) {
+      isdisable = false;
+    }
   }
 
   @override
@@ -49,6 +62,16 @@ class _TQ2State extends State<TQ2> {
                     activeColor: Colors.blue,
                     checkColor: Colors.white,
                     onChanged: (bool value) {
+                      if (value) {
+                        num_selected++;
+                      } else {
+                        num_selected--;
+                      }
+                      if (num_selected == 0) {
+                        isdisable = true;
+                      } else {
+                        isdisable = false;
+                      }
                       setState(() {
                         List[key] = value;
                         print("Here in ");
@@ -63,6 +86,28 @@ class _TQ2State extends State<TQ2> {
             }).toList(),
           ),
         ),
+        Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                border: Border(
+              top: BorderSide(
+                color: Colors.black,
+                width: 0.5,
+              ),
+            )),
+            width: 500,
+            height: 60,
+            child: RaisedButton(
+              // disabledColor: Colors.blue[200],
+              color: isdisable ? Colors.blue[200] : Colors.blue,
+              onPressed: () {
+                return isdisable ? null : widget.call();
+              },
+              child: Text(
+                "NEXT",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            )),
       ],
     );
   }
