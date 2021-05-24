@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
+import 'package:housytask/screens/PersonListpage.dart';
 import 'package:housytask/screens/housingfilter.dart';
 import 'package:housytask/multipleChoice.dart';
 import 'package:housytask/provider/p_electrician.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        home: ElectriFilter(),
+        home: PersonListPage(),
       ),
     );
   }
