@@ -12,6 +12,7 @@ import 'Housingfilter/h_eq2.dart';
 import 'Housingfilter/h_eq1.dart';
 
 class HousingFilter extends StatefulWidget {
+  static final String routename = '/housing-page';
   @override
   _HousingFilterState createState() => _HousingFilterState();
 }
@@ -59,6 +60,7 @@ class _HousingFilterState extends State<HousingFilter> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.white,
         actions: [
@@ -67,7 +69,7 @@ class _HousingFilterState extends State<HousingFilter> {
               Icons.close,
               color: Colors.black,
             ),
-            onPressed: () => null,
+            onPressed: () => Navigator.of(context).pop(),
           )
         ],
         title: Center(
@@ -108,41 +110,18 @@ class _HousingFilterState extends State<HousingFilter> {
                 },
                 controller: _pageController,
                 children: [
-                  hq1(),
-                  hq2(),
-                  hq3(),
-                  hq4(),
-                  hq5(),
-                  hq6(),
-                  hq7(),
-                  hq8(),
-                  hq9(),
+                  HQ1(next),
+                  HQ2(next),
+                  HQ3(next),
+                  HQ4(next),
+                  HQ5(next),
+                  HQ6(next),
+                  HQ7(next),
+                  HQ8(next),
+                  HQ9(next),
                 ],
               ),
               flex: 11,
-            ),
-            Container(
-              padding: EdgeInsets.all(5),
-              decoration: BoxDecoration(
-                  border: Border(
-                top: BorderSide(
-                  color: Colors.black,
-                  width: 0.5,
-                ),
-              )),
-              width: 500,
-              height: 60,
-              child: RaisedButton(
-                // disabledColor: Colors.blue[200],
-                color: isdisable ? Colors.blue[200] : Colors.blue,
-                onPressed: () {
-                  return isdisable ? null : next();
-                },
-                child: Text(
-                  "NEXT",
-                  style: TextStyle(color: Colors.white, fontSize: 18),
-                ),
-              ),
             ),
           ],
         );

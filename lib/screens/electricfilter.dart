@@ -11,6 +11,7 @@ import 'package:housytask/screens/Electricfilter/eq7.dart';
 import 'package:provider/provider.dart';
 
 class ElectriFilter extends StatefulWidget {
+  static final String routename = '/electric-page';
   @override
   _ElectriFilterState createState() => _ElectriFilterState();
 }
@@ -66,7 +67,7 @@ class _ElectriFilterState extends State<ElectriFilter> {
               Icons.close,
               color: Colors.black,
             ),
-            onPressed: () => null,
+            onPressed: () => Navigator.of(context).pop(),
           )
         ],
         title: Center(
@@ -118,7 +119,6 @@ class _ElectriFilterState extends State<ElectriFilter> {
               ),
               flex: 11,
             ),
-            
           ],
         );
       }),

@@ -2,21 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
-class hq2 extends StatefulWidget {
+class HQ2 extends StatefulWidget {
+  HQ2(this.call);
+  Function call;
   @override
-  _hq2State createState() => _hq2State();
+  _HQ2State createState() => _HQ2State();
 }
 
-class _hq2State extends State<hq2> {
+class _HQ2State extends State<HQ2> {
   List items;
   int select;
+  int num_selected = 0;
+
+  bool isdisable = true;
   @override
   void initState() {
     super.initState();
     items = Provider.of<P_Housing>(context, listen: false).item2;
+    select = Provider.of<P_Housing>(context, listen: false).currentans2;
+    if (select != -1) {
+      isdisable = false;
+    }
   }
 
   setSelectedRadio(int val) {
+    isdisable = false;
     setState(() {
       select = val;
     });
@@ -57,8 +67,8 @@ class _hq2State extends State<hq2> {
                         () {
                           setSelectedRadio(i);
                           print("Here in ");
-                          // Provider.of<P_Housing>(context, listen: false)
-                          //     .ans1(i);
+                          Provider.of<P_Housing>(context, listen: false)
+                              .ans2(i);
                         },
                       );
                     },
@@ -85,8 +95,8 @@ class _hq2State extends State<hq2> {
                                 () {
                                   setSelectedRadio(val);
                                   print("Here in ");
-                                  // Provider.of<P_Housing>(context, listen: false)
-                                  //     .ans1(val);
+                                  Provider.of<P_Housing>(context, listen: false)
+                                      .ans2(val);
                                 },
                               );
                             },
@@ -101,6 +111,28 @@ class _hq2State extends State<hq2> {
             itemCount: items.length,
           ),
         ),
+        Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                border: Border(
+              top: BorderSide(
+                color: Colors.black,
+                width: 0.5,
+              ),
+            )),
+            width: 500,
+            height: 60,
+            child: RaisedButton(
+              // disabledColor: Colors.blue[200],
+              color: isdisable ? Colors.blue[200] : Colors.blue,
+              onPressed: () {
+                return isdisable ? null : widget.call();
+              },
+              child: Text(
+                "NEXT",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            )),
       ],
     );
   }

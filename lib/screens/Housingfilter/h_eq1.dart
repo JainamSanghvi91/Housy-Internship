@@ -2,29 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
-class hq1 extends StatefulWidget {
+class HQ1 extends StatefulWidget {
+  HQ1(this.call);
+  Function call;
   @override
-  _hq1State createState() => _hq1State();
+  _HQ1State createState() => _HQ1State();
 }
 
-class _hq1State extends State<hq1> {
+class _HQ1State extends State<HQ1> {
   List items;
   int select;
+  int num_selected = 0;
+
+  bool isdisable = true;
   @override
   void initState() {
     super.initState();
     items = Provider.of<P_Housing>(context, listen: false).item1;
-    // for (int i = 0; i < 3; i++) {
-    //   print(items.entries.elementAt(i).key);
-    //   print(items.entries.elementAt(i).value);
-    //   if (items.entries.elementAt(i).value == true) {
-    //     select = i;
-    //   }
-    // }
-    select = Provider.of<P_Housing>(context, listen: false).currentselected;
+    select = Provider.of<P_Housing>(context, listen: false).currentans1;
+    if (select != -1) {
+      isdisable = false;
+    }
   }
 
   setSelectedRadio(int val) {
+    isdisable = false;
     setState(() {
       select = val;
     });
@@ -106,6 +108,28 @@ class _hq1State extends State<hq1> {
             itemCount: items.length,
           ),
         ),
+        Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                border: Border(
+              top: BorderSide(
+                color: Colors.black,
+                width: 0.5,
+              ),
+            )),
+            width: 500,
+            height: 60,
+            child: RaisedButton(
+              // disabledColor: Colors.blue[200],
+              color: isdisable ? Colors.blue[200] : Colors.blue,
+              onPressed: () {
+                return isdisable ? null : widget.call();
+              },
+              child: Text(
+                "NEXT",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            )),
       ],
     );
   }

@@ -2,17 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
-class hq5 extends StatefulWidget {
+class HQ5 extends StatefulWidget {
+  HQ5(this.call);
+  Function call;
   @override
-  _hq5State createState() => _hq5State();
+  _HQ5State createState() => _HQ5State();
 }
 
-class _hq5State extends State<hq5> {
+class _HQ5State extends State<HQ5> {
   Map<String, bool> List;
+  int num_selected = 0;
+
+  bool isdisable = true;
   @override
   void initState() {
     super.initState();
     List = Provider.of<P_Housing>(context, listen: false).item5;
+    List.forEach((key, value) {
+      if (value) {
+        num_selected++;
+      }
+    });
+    if (num_selected != 0) {
+      isdisable = false;
+    }
   }
 
   @override
@@ -49,11 +62,21 @@ class _hq5State extends State<hq5> {
                     activeColor: Colors.blue,
                     checkColor: Colors.white,
                     onChanged: (bool value) {
+                      if (value) {
+                        num_selected++;
+                      } else {
+                        num_selected--;
+                      }
+                      if (num_selected == 0) {
+                        isdisable = true;
+                      } else {
+                        isdisable = false;
+                      }
                       setState(() {
                         List[key] = value;
                         print("Here in ");
-                        // Provider.of<P_Housing>(context, listen: false)
-                        //     .c_type_of_work(List);
+                        Provider.of<P_Housing>(context, listen: false)
+                            .ans5(List);
                         // holder_1[key]=value;
                       });
                     },
@@ -63,6 +86,28 @@ class _hq5State extends State<hq5> {
             }).toList(),
           ),
         ),
+        Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                border: Border(
+              top: BorderSide(
+                color: Colors.black,
+                width: 0.5,
+              ),
+            )),
+            width: 500,
+            height: 60,
+            child: RaisedButton(
+              // disabledColor: Colors.blue[200],
+              color: isdisable ? Colors.blue[200] : Colors.blue,
+              onPressed: () {
+                return isdisable ? null : widget.call();
+              },
+              child: Text(
+                "NEXT",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            )),
       ],
     );
   }

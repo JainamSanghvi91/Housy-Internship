@@ -2,18 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
 import 'package:provider/provider.dart';
 
-class hq9 extends StatefulWidget {
+class HQ9 extends StatefulWidget {
+  HQ9(this.call);
+  Function call;
   @override
-  _hq9State createState() => _hq9State();
+  _HQ9State createState() => _HQ9State();
 }
 
-class _hq9State extends State<hq9> {
+class _HQ9State extends State<HQ9> {
   Map<String, bool> List;
   @override
   void initState() {
     super.initState();
     List = Provider.of<P_Housing>(context, listen: false).item9;
+    List.forEach((key, value) {
+      if (value) {
+        num_selected++;
+      }
+    });
+    if (num_selected != 0) {
+      isdisable = false;
+    }
   }
+
+  int num_selected = 0;
+
+  bool isdisable = true;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +63,16 @@ class _hq9State extends State<hq9> {
                     activeColor: Colors.blue,
                     checkColor: Colors.white,
                     onChanged: (bool value) {
+                      if (value) {
+                        num_selected++;
+                      } else {
+                        num_selected--;
+                      }
+                      if (num_selected == 0) {
+                        isdisable = true;
+                      } else {
+                        isdisable = false;
+                      }
                       setState(() {
                         List[key] = value;
                         print("Here in ");
@@ -63,6 +87,28 @@ class _hq9State extends State<hq9> {
             }).toList(),
           ),
         ),
+        Container(
+            padding: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+                border: Border(
+              top: BorderSide(
+                color: Colors.black,
+                width: 0.5,
+              ),
+            )),
+            width: 500,
+            height: 60,
+            child: RaisedButton(
+              // disabledColor: Colors.blue[200],
+              color: isdisable ? Colors.blue[200] : Colors.blue,
+              onPressed: () {
+                return isdisable ? null : widget.call();
+              },
+              child: Text(
+                "Done",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
+            )),
       ],
     );
   }
