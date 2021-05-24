@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_electrician.dart';
 import 'package:provider/provider.dart';
-<<<<<<< HEAD
-=======
-
->>>>>>> 1a24adf83410217fa1b3f314152355010638c30e
 class EQ2 extends StatefulWidget {
   EQ2(this.call);
   Function call;
@@ -13,35 +9,20 @@ class EQ2 extends StatefulWidget {
 }
 
 class _EQ2State extends State<EQ2> {
-<<<<<<< HEAD
     Map<String, bool> List;
   int num_selected = 0;
   bool isdisable=true;
-=======
-  Map<String, bool> List;
-  int num_selected = 0;
-  bool isdisable = true;
->>>>>>> 1a24adf83410217fa1b3f314152355010638c30e
   @override
   void initState() {
     super.initState();
     List = Provider.of<P_Electrician>(context, listen: false).services;
     List.forEach((key, value) {
-<<<<<<< HEAD
       if(value){
         num_selected++;
       }
     });
     if(num_selected!=0){
       isdisable=false;
-=======
-      if (value) {
-        num_selected++;
-      }
-    });
-    if (num_selected != 0) {
-      isdisable = false;
->>>>>>> 1a24adf83410217fa1b3f314152355010638c30e
     }
   }
 
@@ -80,7 +61,6 @@ class _EQ2State extends State<EQ2> {
                     activeColor: Colors.blue,
                     checkColor: Colors.white,
                     onChanged: (bool value) {
-<<<<<<< HEAD
                       if(value){
                         num_selected++;
                       }
@@ -92,17 +72,6 @@ class _EQ2State extends State<EQ2> {
                       }
                       else{
                         isdisable=false;
-=======
-                      if (value) {
-                        num_selected++;
-                      } else {
-                        num_selected--;
-                      }
-                      if (num_selected == 0) {
-                        isdisable = true;
-                      } else {
-                        isdisable = false;
->>>>>>> 1a24adf83410217fa1b3f314152355010638c30e
                       }
                       setState(() {
                         List[key] = value;
@@ -129,7 +98,6 @@ class _EQ2State extends State<EQ2> {
             )),
             width: 500,
             height: 60,
-<<<<<<< HEAD
             child: 
                  RaisedButton(
                   // disabledColor: Colors.blue[200],
@@ -144,19 +112,6 @@ class _EQ2State extends State<EQ2> {
                 )
               
             ),
-=======
-            child: RaisedButton(
-              // disabledColor: Colors.blue[200],
-              color: isdisable ? Colors.blue[200] : Colors.blue,
-              onPressed: () {
-                return isdisable ? null : widget.call();
-              },
-              child: Text(
-                "NEXT",
-                style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
-            )),
->>>>>>> 1a24adf83410217fa1b3f314152355010638c30e
       ],
     );
   }
