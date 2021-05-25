@@ -41,6 +41,8 @@ class _MQ6State extends State<MQ6> {
                 "What time of the day do you prefer? ",
                 style: TextStyle(
                   fontSize: 18,
+                  fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

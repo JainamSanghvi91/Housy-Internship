@@ -44,6 +44,7 @@ class _HQ9State extends State<HQ9> {
                 "Do you need any extras? ",
                 style: TextStyle(
                   fontSize: 18,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),
@@ -104,7 +105,15 @@ class _HQ9State extends State<HQ9> {
               // disabledColor: Colors.blue[200],
               color: isdisable ? Colors.blue[200] : Colors.blue,
               onPressed: () {
-                return isdisable ? null : Navigator.of(context).pushReplacementNamed(PersonListPage.routename,arguments: {'next':HousingFilter.routename});
+                if (isdisable) {
+                  return null;
+                } else {
+                                    Provider.of<P_Housing>(context,listen: false).changefirst();
+
+                  return Navigator.of(context).pushReplacementNamed(
+                      PersonListPage.routename,
+                      arguments: {'next': HousingFilter.routename});
+                }
               },
               child: Text(
                 "Done",

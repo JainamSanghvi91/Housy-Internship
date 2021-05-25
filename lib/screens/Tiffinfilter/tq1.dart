@@ -41,6 +41,8 @@ class _TQ1State extends State<TQ1> {
                 "Which is your preferred food type? ",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

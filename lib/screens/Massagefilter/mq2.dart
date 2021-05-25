@@ -45,6 +45,8 @@ class _MQ2State extends State<MQ2> {
                 "How long would you like the session to be?",
                 style: TextStyle(
                   fontSize: 18,
+                  fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

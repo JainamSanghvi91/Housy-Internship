@@ -49,6 +49,8 @@ class _EQ3State extends State<EQ3> {
                 "Approximate height of the ceiling?",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

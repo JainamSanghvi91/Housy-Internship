@@ -6,7 +6,11 @@ class P_Housing with ChangeNotifier {
     'Full time(non-live in)',
     'Full time(live in)',
   ];
+bool isfirst=true;
 
+  void changefirst(){
+    isfirst=false;
+  }
   int currentans1 = -1;
 
   void ans1(int id) {

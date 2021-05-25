@@ -41,6 +41,8 @@ class _TQ2State extends State<TQ2> {
                 "What are your regional preferences for the food? ",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

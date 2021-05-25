@@ -43,6 +43,8 @@ class _TQ3State extends State<TQ3> {
                 "What time of the day do you need service? ",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),
@@ -103,6 +105,7 @@ class _TQ3State extends State<TQ3> {
             // disabledColor: Colors.blue[200],
             color: Colors.blue,
             onPressed: () {
+              Provider.of<P_Tiffin>(context,listen: false).changefirst();
               Navigator.of(context).pushReplacementNamed(PersonListPage.routename,arguments: {'next':TiffinFilter.routename});
               // widget.call();
             },

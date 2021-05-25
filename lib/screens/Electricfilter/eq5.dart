@@ -37,6 +37,8 @@ class _EQ5State extends State<EQ5> {
               "Additional details if any?",
               style: TextStyle(
                 fontSize: 18,
+                                  fontWeight: FontWeight.w600,
+
               ),
             ),
           ),

@@ -42,6 +42,7 @@ class _EQ1State extends State<EQ1> {
                 "What type of work do you have? ",
                 style: TextStyle(
                   fontSize: 18,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ),

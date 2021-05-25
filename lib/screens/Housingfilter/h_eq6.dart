@@ -45,6 +45,8 @@ class _HQ6State extends State<HQ6> {
                 "How often do you need the house cleaned?",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

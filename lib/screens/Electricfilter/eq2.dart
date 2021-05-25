@@ -40,6 +40,8 @@ class _EQ2State extends State<EQ2> {
                 "What services are you looking for?",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

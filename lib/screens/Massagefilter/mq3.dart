@@ -45,6 +45,8 @@ class _MQ3State extends State<MQ3> {
                 "What type of massage would you like?",
                 style: TextStyle(
                   fontSize: 18,
+                  fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

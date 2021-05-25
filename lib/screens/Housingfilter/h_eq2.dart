@@ -45,6 +45,8 @@ class _HQ2State extends State<HQ2> {
                 "How many bedrooms are there?",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

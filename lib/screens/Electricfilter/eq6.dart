@@ -41,8 +41,11 @@ class _EQ6State extends State<EQ6> {
             child: Center(
               child: Text(
                 "What time of the day do you prefer?",
+
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

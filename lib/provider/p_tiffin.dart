@@ -10,6 +10,11 @@ class P_Tiffin with ChangeNotifier {
   void ans1(var list) {
     item1 = list;
   }
+  bool isfirst=true;
+
+  void changefirst(){
+    isfirst=false;
+  }
 
   Map<String, bool> item2 = {
     'Any': false,

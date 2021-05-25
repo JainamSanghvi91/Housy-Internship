@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:housytask/provider/p_electrician.dart';
+import 'package:housytask/provider/p_housing.dart';
+import 'package:housytask/provider/p_massage.dart';
+import 'package:housytask/provider/p_tiffin.dart';
+import 'package:housytask/screens/PersonListpage.dart';
 import 'package:housytask/screens/electricfilter.dart';
 import 'package:housytask/screens/housingfilter.dart';
 import 'package:housytask/screens/massagefilter.dart';
@@ -32,13 +37,41 @@ class _HomePageState extends State<HomePage> {
 
   void page(int i) {
     if (i == 0) {
-      Navigator.of(context).pushNamed(HousingFilter.routename);
+      var h = Provider.of<P_Housing>(context, listen: false);
+      if (h.isfirst) {
+        Navigator.of(context).pushNamed(HousingFilter.routename);
+      } else {
+        Navigator.of(context).pushNamed(PersonListPage.routename,
+            arguments: {'next': HousingFilter.routename});
+        
+      }
     } else if (i == 1) {
-      Navigator.of(context).pushNamed(ElectriFilter.routename);
+      var h = Provider.of<P_Electrician>(context, listen: false);
+      if (h.isfirst) {
+        Navigator.of(context).pushNamed(ElectriFilter.routename);
+      } else {
+        Navigator.of(context).pushNamed(PersonListPage.routename,
+            arguments: {'next': ElectriFilter.routename});
+       
+      }
     } else if (i == 2) {
-      Navigator.of(context).pushNamed(MassageFilter.routename);
+      var h = Provider.of<P_Massage>(context, listen: false);
+      if (h.isfirst) {
+        Navigator.of(context).pushNamed(MassageFilter.routename);
+      } else {
+        Navigator.of(context).pushNamed(PersonListPage.routename,
+            arguments: {'next': MassageFilter.routename});
+       
+      }
     } else {
-      Navigator.of(context).pushNamed(TiffinFilter.routename);
+      var h = Provider.of<P_Tiffin>(context, listen: false);
+      if (h.isfirst) {
+        Navigator.of(context).pushNamed(TiffinFilter.routename);
+      } else {
+        Navigator.of(context).pushNamed(PersonListPage.routename,
+            arguments: {'next': TiffinFilter.routename});
+       
+      }
     }
   }
 

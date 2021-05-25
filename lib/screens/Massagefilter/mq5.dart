@@ -45,6 +45,8 @@ class _MQ5State extends State<MQ5> {
                   "Additional details if any?",
                   style: TextStyle(
                     fontSize: 18,
+                    fontWeight: FontWeight.w600,
+
                   ),
                 ),
               ),
@@ -58,9 +60,7 @@ class _MQ5State extends State<MQ5> {
               keyboardType: TextInputType.text,
               cursorColor: Colors.black,
               decoration: InputDecoration(
-                border: new OutlineInputBorder(
-                  borderSide: new BorderSide(),
-                ),
+                
                 focusColor: Colors.black,
                 contentPadding: EdgeInsets.all(10),
                 hintText: "Additional details",

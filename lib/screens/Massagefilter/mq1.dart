@@ -44,6 +44,8 @@ class _MQ1State extends State<MQ1> {
                 "How many people need a massage?",
                 style: TextStyle(
                   fontSize: 18,
+                  fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

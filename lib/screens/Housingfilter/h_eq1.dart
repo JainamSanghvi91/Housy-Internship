@@ -44,6 +44,8 @@ class _HQ1State extends State<HQ1> {
                 "What type of service do you need?",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

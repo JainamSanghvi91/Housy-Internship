@@ -34,6 +34,8 @@ class _EQ7State extends State<EQ7> {
 
   void next(){
     Provider.of<P_Electrician>(context,listen: false).c_date(_selectedDay);
+                      Provider.of<P_Electrician>(context,listen: false).changefirst();
+
     // print("${Provider.of<P_Electrician>(context,listen: false).date}");
     // print("next method select day is ${_selectedDay}");
     Navigator.of(context).pushReplacementNamed(PersonListPage.routename,arguments: {'next':ElectriFilter.routename});
@@ -42,7 +44,25 @@ class _EQ7State extends State<EQ7> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+         Expanded(
+          flex: 1,
+          child: Container(
+            //color: Colors.green,
+            child: Center(
+              child: Text(
+                "When would you like this program to start?",
+                style: TextStyle(
+                  fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
+                ),
+              ),
+            ),
+          ),
+        ),
+        Divider(),
         Expanded(
+          flex: 7,
           child: TableCalendar(
             firstDay: DateTime.now(),
             lastDay: DateTime.utc(2030, 3, 14),

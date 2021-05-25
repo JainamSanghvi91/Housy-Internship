@@ -41,6 +41,8 @@ class _HQ5State extends State<HQ5> {
                 "Do you need any extras? ",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

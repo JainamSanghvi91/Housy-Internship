@@ -77,6 +77,8 @@ class _EQ4State extends State<EQ4> {
                 "Where do you want your services?",
                 style: TextStyle(
                   fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

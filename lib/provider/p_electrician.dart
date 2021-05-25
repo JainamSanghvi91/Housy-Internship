@@ -6,7 +6,11 @@ class P_Electrician with ChangeNotifier {
     'Repair': false,
   };
   bool val=false;
+  bool isfirst=true;
 
+  void changefirst(){
+    isfirst=false;
+  }
   void changeval(){
     val=!val;
   }

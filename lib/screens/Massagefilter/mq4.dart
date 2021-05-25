@@ -44,6 +44,8 @@ class _MQ4State extends State<MQ4> {
                 "Do you have any gender preference?",
                 style: TextStyle(
                   fontSize: 18,
+                  fontWeight: FontWeight.w600,
+
                 ),
               ),
             ),

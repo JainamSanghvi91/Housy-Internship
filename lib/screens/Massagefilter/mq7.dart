@@ -27,6 +27,8 @@ class _MQ7State extends State<MQ7> {
 
   void next() {
     Provider.of<P_Massage>(context, listen: false).ans7(_selectedDay);
+                  Provider.of<P_Massage>(context,listen: false).changefirst();
+
     Navigator.of(context).pushReplacementNamed(PersonListPage.routename,arguments: {'next':MassageFilter.routename});
   }
 
@@ -35,6 +37,24 @@ class _MQ7State extends State<MQ7> {
     return Column(
       children: [
         Expanded(
+          flex: 1,
+          child: Container(
+            //color: Colors.green,
+            child: Center(
+              child: Text(
+                "When would you like this program to start?",
+                style: TextStyle(
+                  fontSize: 18,
+                                    fontWeight: FontWeight.w600,
+
+                ),
+              ),
+            ),
+          ),
+        ),
+        Divider(),
+        Expanded(
+          flex: 7,
           child: TableCalendar(
             firstDay: DateTime.now(),
             lastDay: DateTime.utc(2030, 3, 14),

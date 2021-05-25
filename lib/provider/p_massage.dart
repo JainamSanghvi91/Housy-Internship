@@ -69,7 +69,12 @@ class P_Massage with ChangeNotifier {
 
   DateTime date = DateTime.now();
 
-  void ans7(DateTime date) {
-    date = date;
+  void ans7(DateTime date2) {
+    date = date2;
+  }
+  bool isfirst=true;
+
+  void changefirst(){
+    isfirst=false;
   }
 }
