@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
   List images = [
     "assets/images/home-service_1.jpg",
     "assets/images/electric-service_1.jpg",
-    "assets/images/massage-service_1.jpg",
+    "assets/images/massage-service_3.jpg",
     "assets/images/tiffin-service_1.jpg",
   ];
 
@@ -87,7 +87,7 @@ class _HomePageState extends State<HomePage> {
               Column(
                 children: [
                   Container(
-                    height: 0.45 * maxH,
+                    height: 0.5 * maxH,
                     width: maxW,
                     decoration: BoxDecoration(
                       image: DecorationImage(
@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     child: Container(
                       padding:
-                          EdgeInsets.only(top: 0.17 * maxH, left: 0.05 * maxW),
+                          EdgeInsets.only(top: 0.13 * maxH, left: 0.05 * maxW),
                       color: Color(0xFF3b5999).withOpacity(.5),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                               ),
                               children: [
                                 TextSpan(
-                                  text: "Jainam Cleaning Services",
+                                  text: "Housy \nCleaning Services",
                                   style: TextStyle(
                                     fontSize: 0.035 * maxH,
                                     fontWeight: FontWeight.bold,
@@ -139,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.only(top: 220),
+                padding: EdgeInsets.only(top: maxH * 0.32),
                 child: GridView.builder(
                   itemCount: 4,
                   shrinkWrap: true,
@@ -147,7 +147,7 @@ class _HomePageState extends State<HomePage> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     //height: 400,
                     crossAxisCount: 2,
-                    crossAxisSpacing: 5,
+                    crossAxisSpacing: 2,
                     mainAxisSpacing: 5,
                   ),
                   itemBuilder: (BuildContext context, int index) {
@@ -171,6 +171,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Center(
                                   child: Text(
                                     name[index],
+                                    style: TextStyle(fontSize: 0.02 * maxH),
                                   ),
                                 ),
                               ),
