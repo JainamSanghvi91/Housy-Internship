@@ -87,8 +87,8 @@ class P_Housing with ChangeNotifier {
 
   DateTime date = DateTime.now();
 
-  void ans8(DateTime date) {
-    date = date;
+  void ans8(DateTime date2) {
+    date = date2;
   }
 
   Map<String, bool> item9 = {

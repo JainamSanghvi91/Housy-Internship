@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_massage.dart';
+import 'package:housytask/screens/PersonListpage.dart';
+import 'package:housytask/screens/massagefilter.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -25,7 +27,7 @@ class _MQ7State extends State<MQ7> {
 
   void next() {
     Provider.of<P_Massage>(context, listen: false).ans7(_selectedDay);
-    widget.call();
+    Navigator.of(context).pushReplacementNamed(PersonListPage.routename,arguments: {'next':MassageFilter.routename});
   }
 
   @override

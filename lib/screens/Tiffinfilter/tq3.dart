@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_tiffin.dart';
+import 'package:housytask/screens/PersonListpage.dart';
+import 'package:housytask/screens/tiffinfilter.dart';
 import 'package:provider/provider.dart';
 
 class TQ3 extends StatefulWidget {
@@ -101,7 +103,8 @@ class _TQ3State extends State<TQ3> {
             // disabledColor: Colors.blue[200],
             color: Colors.blue,
             onPressed: () {
-              widget.call();
+              Navigator.of(context).pushReplacementNamed(PersonListPage.routename,arguments: {'next':TiffinFilter.routename});
+              // widget.call();
             },
             child: Text(
               "Done",

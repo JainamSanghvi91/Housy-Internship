@@ -39,13 +39,14 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
-        home: PersonListPage(),
+        home: HomePage(),
         // home: HomePage(),
         routes: {
           HousingFilter.routename: (ctx) => HousingFilter(),
           ElectriFilter.routename: (ctx) => ElectriFilter(),
           MassageFilter.routename: (ctx) => MassageFilter(),
           TiffinFilter.routename: (ctx) => TiffinFilter(),
+          PersonListPage.routename:(ctx)=>PersonListPage(),
         },
       ),
     );

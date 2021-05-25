@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_housing.dart';
+import 'package:housytask/screens/PersonListpage.dart';
+import 'package:housytask/screens/housingfilter.dart';
 import 'package:provider/provider.dart';
 
 class HQ9 extends StatefulWidget {
@@ -102,7 +104,7 @@ class _HQ9State extends State<HQ9> {
               // disabledColor: Colors.blue[200],
               color: isdisable ? Colors.blue[200] : Colors.blue,
               onPressed: () {
-                return isdisable ? null : widget.call();
+                return isdisable ? null : Navigator.of(context).pushReplacementNamed(PersonListPage.routename,arguments: {'next':HousingFilter.routename});
               },
               child: Text(
                 "Done",

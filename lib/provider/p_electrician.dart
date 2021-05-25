@@ -5,6 +5,11 @@ class P_Electrician with ChangeNotifier {
     'Installation': false,
     'Repair': false,
   };
+  bool val=false;
+
+  void changeval(){
+    val=!val;
+  }
 
   bool isdisable = true;
   String instruction="";
@@ -36,7 +41,7 @@ class P_Electrician with ChangeNotifier {
     'others'
   ];
 
-  DateTime date=DateTime.now();
+  DateTime date;
 
   int currentheight = -1;
 
@@ -64,7 +69,7 @@ class P_Electrician with ChangeNotifier {
     time=list;
   }
 
-  void c_date(DateTime date){
-    date=date;
+  void c_date(DateTime date2){
+    date=date2;
   }
 }

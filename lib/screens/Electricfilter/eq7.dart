@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:housytask/provider/p_electrician.dart';
+import 'package:housytask/screens/PersonListpage.dart';
+import 'package:housytask/screens/electricfilter.dart';
 import 'package:provider/provider.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -20,13 +22,21 @@ class _EQ7State extends State<EQ7> {
     // TODO: implement initState
     super.initState();
     _selectedDay = Provider.of<P_Electrician>(context, listen: false).date;
+        print(" before _selecteday is init ${_selectedDay}");
+
+    if(_selectedDay==null){
+      _selectedDay=DateTime.now();
+    }
+    print("_selecteday is init ${_selectedDay}");
     _focusDay = _selectedDay;
   }
 
 
   void next(){
     Provider.of<P_Electrician>(context,listen: false).c_date(_selectedDay);
-    widget.call();
+    // print("${Provider.of<P_Electrician>(context,listen: false).date}");
+    // print("next method select day is ${_selectedDay}");
+    Navigator.of(context).pushReplacementNamed(PersonListPage.routename,arguments: {'next':ElectriFilter.routename});
   }
   @override
   Widget build(BuildContext context) {

@@ -38,11 +38,14 @@ class _EQ4State extends State<EQ4> {
         }
         count++;
       });
+      if(select==null){
+        select=2;
+      }
       if (select != 2) {
         ser = "";
       }
       isdisable = false;
-    } else {}
+    }
   }
 
   setSelectedRadio(int val) {
@@ -95,7 +98,7 @@ class _EQ4State extends State<EQ4> {
                               labelStyle: TextStyle(
                                 color: Colors.grey,
                               )),
-                          keyboardType: TextInputType.phone,
+                          // keyboardType: TextInputType.phone,
                           onChanged: (value) {
                             if (value.isEmpty) {
                               setState(() {
@@ -106,6 +109,8 @@ class _EQ4State extends State<EQ4> {
                                 isdisable = false;
                               });
                             }
+                             Provider.of<P_Electrician>(context, listen: false)
+                                .c_service_place(value);
                             ser = value;
                           },
                         ),
